@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nepal Drive OS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-card">
+        <div class="brand-logo">⛰️</div>
+        <div>
+          <h1>Nepal Drive OS</h1>
+          <p>Infotainment & Vehicle Intelligence</p>
+        </div>
+      </div>
+
+      <section class="status-block">
+        <div class="panel-header">
+          <span>Vehicle Awareness</span>
+          <span class="badge">Real-Time</span>
+        </div>
+        <div class="status-grid">
+          <div class="status-pill">
+            <span>Speed</span>
+            <strong id="speedValue">0 km/h</strong>
+          </div>
+          <div class="status-pill">
+            <span>Gear</span>
+            <strong id="gearValue">P</strong>
+          </div>
+          <div class="status-pill">
+            <span>Brake</span>
+            <strong id="brakeValue">Released</strong>
+          </div>
+          <div class="status-pill">
+            <span>Steering</span>
+            <strong id="steeringValue">0°</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-group">
+        <h2>Tire Status</h2>
+        <div class="tires-grid">
+          <div class="tire-card">
+            <span>Front Left</span>
+            <strong id="tireFL">34 PSI</strong>
+          </div>
+          <div class="tire-card">
+            <span>Front Right</span>
+            <strong id="tireFR">33 PSI</strong>
+          </div>
+          <div class="tire-card">
+            <span>Rear Left</span>
+            <strong id="tireRL">32 PSI</strong>
+          </div>
+          <div class="tire-card">
+            <span>Rear Right</span>
+            <strong id="tireRR">32 PSI</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-group">
+        <h2>Drive Control</h2>
+        <div class="gear-buttons">
+          <button data-gear="P">P</button>
+          <button data-gear="R">R</button>
+          <button data-gear="N">N</button>
+          <button data-gear="D">D</button>
+        </div>
+        <div class="steering-control">
+          <label>Steering</label>
+          <input id="steeringRange" type="range" min="-45" max="45" value="0" />
+        </div>
+      </section>
+    </aside>
+
+    <main class="main-panel">
+      <section class="dashboard-card">
+        <div class="panel-header">
+          <span>Front Infotainment</span>
+          <span class="badge accent">Nepalese Modern</span>
+        </div>
+        <div class="car-scene">
+          <div class="mountain-line"></div>
+          <div class="car-shell">
+            <div class="seat front-left" id="seatFL"><span>FL</span></div>
+            <div class="seat front-right" id="seatFR"><span>FR</span></div>
+            <div class="seat rear-left" id="seatRL"><span>RL</span></div>
+            <div class="seat rear-right" id="seatRR"><span>RR</span></div>
+          </div>
+          <div class="car-state">
+            <p>AC: <strong id="acMode">Off</strong></p>
+            <p>Heater: <strong id="heaterMode">Off</strong></p>
+            <p>Music: <strong id="musicTrack">No Track</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls-grid">
+        <div class="control-panel climate-card">
+          <div class="panel-header">
+            <span>Climate Control</span>
+            <span class="badge">Cabin</span>
+          </div>
+          <div class="climate-grid">
+            <div class="climate-option">
+              <label>AC</label>
+              <button id="acToggle">Turn On</button>
+            </div>
+            <div class="climate-option">
+              <label>Heater</label>
+              <button id="heaterToggle">Turn On</button>
+            </div>
+            <div class="temperature-control">
+              <label>Cabin Temp</label>
+              <div class="temp-line">
+                <button id="tempDown">-</button>
+                <span id="tempValue">22°C</span>
+                <button id="tempUp">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-panel media-card">
+          <div class="panel-header">
+            <span>Media System</span>
+            <span class="badge">Sound</span>
+          </div>
+          <div class="media-grid">
+            <div>
+              <p class="label">Now Playing</p>
+              <h3 id="musicTitle">Himalaya Drive</h3>
+              <p id="musicArtist">Nepali Electronic</p>
+            </div>
+            <div class="media-actions">
+              <button id="prevTrack">◀</button>
+              <button id="playPause">▶</button>
+              <button id="nextTrack">▶</button>
+            </div>
+            <div class="radio-card">
+              <p class="label">Radio Station</p>
+              <select id="radioStation">
+                <option value="Yarlung FM">Yarlung FM 88.5</option>
+                <option value="Kathmandu Beats">Kathmandu Beats 101.2</option>
+                <option value="Pashupatinath Radio">Pashupatinath 90.1</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-panel connect-card">
+          <div class="panel-header">
+            <span>Connected Apps</span>
+            <span class="badge">Smart</span>
+          </div>
+          <div class="connect-grid">
+            <label class="toggle-row">
+              <input type="checkbox" id="appleCarplay" />
+              <span>Apple CarPlay</span>
+            </label>
+            <label class="toggle-row">
+              <input type="checkbox" id="androidAuto" />
+              <span>Android Auto</span>
+            </label>
+            <div class="info-block">
+              <p>System intelligence monitors all four seats, driving mode, and infotainment streams in one dashboard.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
