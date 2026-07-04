@@ -1,0 +1,13 @@
+{
+  "name": "nepal-drive-os-server",
+  "version": "1.0.0",
+  "description": "Backend for the Nepal Drive OS infotainment prototype: WebSocket telemetry stream + control API.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.18.0"
+  }
+}

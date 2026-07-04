@@ -16,10 +16,17 @@ A prototype infotainment and vehicle control dashboard for an electric car, desi
 
 - `index.html` — main dashboard UI
 - `styles.css` — Nepal-inspired styling and layout
-- `script.js` — simulated vehicle data and interactive controls
+- `script.js` — thin client: renders state pushed from the backend and sends control commands
+- `server/` — Node/Express backend: holds vehicle state, runs the telemetry simulation, and streams updates over WebSocket
 
 ## Usage
 
-Open `index.html` in a modern browser to launch the prototype dashboard.
+```
+cd server
+npm install
+npm start
+```
 
-> This is a UI prototype. Embedded chip integration and real vehicle CAN bus wiring require a production-grade automotive system beyond this demo.
+Then open http://localhost:3000 in a browser. The server serves the dashboard and streams live state over a WebSocket; a `GET /api/state` REST endpoint is also available as a fallback for consumers that can't hold a socket open.
+
+> This is a prototype. The backend simulates telemetry in place of a real vehicle; wiring to an actual CAN bus would replace the simulation functions in `server/server.js` with a real hardware adapter feeding the same state/broadcast API.
